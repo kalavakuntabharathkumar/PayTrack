@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="PayTrack accessible expense and payments dashboard">
+  <title>PayTrack | Payments overview</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="PayTrack home"><span class="brand-mark" aria-hidden="true">P</span> PayTrack</a>
+    <nav aria-label="Main navigation">
+      <a class="nav-link active" href="#overview" aria-current="page">Overview</a>
+      <a class="nav-link" href="#transactions">Transactions</a>
+    </nav>
+    <span class="profile" aria-label="Signed in as Alex Morgan">AM</span>
+  </header>
+
+  <main id="main" class="container">
+    <section id="overview" aria-labelledby="page-title">
+      <div class="page-heading">
+        <div><p class="eyebrow">PERSONAL FINANCE</p><h1 id="page-title">Payments overview</h1>
+        <p class="muted">A clear view of where your money is going.</p></div>
+        <button class="button button-primary" id="open-form" type="button">＋ Add transaction</button>
+      </div>
+      <div class="summary-grid" aria-label="Account summary">
+        <article class="summary-card"><p class="card-label">Available balance</p><p class="metric" id="balance">$4,820.50</p><p class="trend positive">↑ 4.8% this month</p></article>
+        <article class="summary-card"><p class="card-label">Income this month</p><p class="metric">$5,400.00</p><p class="trend positive">↑ 2.1% from last month</p></article>
+        <article class="summary-card"><p class="card-label">Expenses this month</p><p class="metric" id="expenses">$579.50</p><p class="trend neutral">Within your usual range</p></article>
+      </div>
+    </section>
+
+    <section id="transactions" class="transactions-panel" aria-labelledby="transactions-title">
+      <div class="section-heading"><div><h2 id="transactions-title">Recent transactions</h2><p class="muted">Review and export your activity.</p></div>
+        <button class="button button-secondary" id="export-csv" type="button">Export CSV</button></div>
+      <div class="filters">
+        <label for="search">Search transactions</label><input id="search" type="search" placeholder="Search merchant or note">
+        <label for="category">Category</label><select id="category"><option value="all">All categories</option><option>Food</option><option>Transport</option><option>Shopping</option><option>Bills</option><option>Income</option></select>
+      </div>
+      <p id="result-count" class="muted" aria-live="polite"></p>
+      <div class="table-wrap">
+        <table>
+          <caption class="sr-only">Transactions with date, description, category and amount</caption>
+          <thead><tr><th scope="col">Transaction</th><th scope="col">Date</th><th scope="col">Category</th><th scope="col" class="amount">Amount</th></tr></thead>
+          <tbody id="transaction-rows"></tbody>
+        </table>
+      </div>
+      <p id="empty-state" class="empty-state" hidden>No transactions match your search.</p>
+    </section>
+
+    <section id="transaction-dialog" class="form-panel" aria-labelledby="form-title" hidden>
+      <div class="section-heading"><h2 id="form-title">Add a transaction</h2><button class="icon-button" id="close-form" type="button" aria-label="Close form">×</button></div>
+      <form id="transaction-form" novalidate>
+        <div class="form-grid">
+          <div><label for="merchant">Description</label><input id="merchant" name="merchant" required maxlength="60" autocomplete="off"></div>
+          <div><label for="amount">Amount (USD)</label><input id="amount" name="amount" type="number" min="0.01" max="1000000" step="0.01" required></div>
+          <div><label for="date">Date</label><input id="date" name="date" type="date" required></div>
+          <div><label for="new-category">Category</label><select id="new-category" name="category"><option>Food</option><option>Transport</option><option>Shopping</option><option>Bills</option><option>Income</option></select></div>
+        </div>
+        <p id="form-error" class="error" role="alert"></p>
+        <div class="form-actions"><button class="button button-secondary" id="cancel-form" type="button">Cancel</button><button class="button button-primary" type="submit">Save transaction</button></div>
+      </form>
+    </section>
+    <p id="status" class="sr-only" role="status" aria-live="polite"></p>
+  </main>
+  <footer><p>PayTrack demo · Sample data only · No bank connection</p></footer>
+</body>
+</html>

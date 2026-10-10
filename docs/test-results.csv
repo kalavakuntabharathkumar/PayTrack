@@ -1,0 +1,9 @@
+participant,task,before_seconds,after_seconds
+P1,add_transaction,41,23
+P2,add_transaction,40,22
+P3,add_transaction,44,24
+P4,add_transaction,39,21
+P5,add_transaction,42,23
+P6,add_transaction,43,25
+P7,add_transaction,40,22
+P8,add_transaction,39,22
