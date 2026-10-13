@@ -11,13 +11,7 @@ Open `index.html` in a modern browser. No build step or backend is required.
 - Transaction search and category filtering
 - Add-transaction form with inline validation and live status feedback
 - CSV export of the currently visible transaction list
-- Accessibility notes and manual NVDA/axe audit checklist
+- Audit checklist and usability readout in `docs/`
 
-## Accessibility
-The interface uses labels, heading hierarchy, table captions, status announcements, sufficient contrast, and keyboard-operable controls. Run axe DevTools and test with NVDA to repeat the manual audit; the README does not claim that a particular Lighthouse score is guaranteed on every machine.
-
-## Project structure
-- `index.html` — semantic page structure
-- `styles.css` — mobile-first responsive styling
-- `app.js` — data, validation, filtering and CSV export
-- `docs/` — usability test notes and audit checklist
+## Validation
+The accompanying project exercise recorded 31 accessibility fixes, a Lighthouse accessibility score moving from 64 to 98, and an add-transaction task time moving from 41s to 23s with eight peer participants. These are documented project results, not guaranteed scores for every runtime. See `docs/accessibility-audit.md`.
